@@ -92,6 +92,12 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.6
         version: 1.1.6(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tiptap/extension-task-item':
+        specifier: ^2.11.0
+        version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/pm@2.10.4)
+      '@tiptap/extension-task-list':
+        specifier: ^2.11.0
+        version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
       '@tiptap/pm':
         specifier: ^2.10.4
         version: 2.10.4
@@ -1369,6 +1375,17 @@ packages:
 
   '@tiptap/extension-strike@2.10.4':
     resolution: {integrity: sha512-OibipsomFpOJWTPVX/z4Z53HgwDA93lE/loHGa+ONJfML1dO6Zd6UTwzaVO1/g8WOwRgwkYu/6JnhxLKRlP8Lg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+
+  '@tiptap/extension-task-item@2.11.0':
+    resolution: {integrity: sha512-qu6VuRc8qF80Bwr82CItFcrKtC67LJkwpxESLEIi42zWZ5sXF/3DJEPPS/4Kk+nAc9UCBoEMFAULibPq7rRl/w==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+
+  '@tiptap/extension-task-list@2.11.0':
+    resolution: {integrity: sha512-+dZRjeXLXxyliFt3J7uQADxfOwi6ntyepVM+ri1rnmIaqVZUHJbUFodOc0LivI+Z5iZZ10u3TId8gehqWJHD+w==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
@@ -4271,6 +4288,15 @@ snapshots:
       '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
 
   '@tiptap/extension-strike@2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))':
+    dependencies:
+      '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
+
+  '@tiptap/extension-task-item@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/pm@2.10.4)':
+    dependencies:
+      '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
+      '@tiptap/pm': 2.10.4
+
+  '@tiptap/extension-task-list@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))':
     dependencies:
       '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
 
