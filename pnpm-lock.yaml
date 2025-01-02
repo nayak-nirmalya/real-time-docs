@@ -92,6 +92,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.6
         version: 1.1.6(@types/react-dom@19.0.2(@types/react@19.0.2))(@types/react@19.0.2)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tiptap/extension-font-family':
+        specifier: ^2.11.0
+        version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/extension-text-style@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4)))
       '@tiptap/extension-image':
         specifier: ^2.11.0
         version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
@@ -111,6 +114,9 @@ importers:
         specifier: ^2.11.0
         version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/pm@2.10.4)
       '@tiptap/extension-task-list':
+        specifier: ^2.11.0
+        version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
+      '@tiptap/extension-text-style':
         specifier: ^2.11.0
         version: 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
       '@tiptap/extension-underline':
@@ -1349,6 +1355,12 @@ packages:
       '@tiptap/core': ^2.7.0
       '@tiptap/pm': ^2.7.0
 
+  '@tiptap/extension-font-family@2.11.0':
+    resolution: {integrity: sha512-INWMTxMe87rz3fAXPrv2xJdJNtfOvAjguNOwM8Z4y8ge9o055l12533rhjTfkmR37ulwEuXM+yRKzyj7roFP8g==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/extension-text-style': ^2.7.0
+
   '@tiptap/extension-gapcursor@2.10.4':
     resolution: {integrity: sha512-KbJfoaqTZePpkWAN+klpK5j0UVtELxN7H5B0J556/UCB/rnq+OsdEFHPks2Ss9TidqWzRUqcxUE50UZ7b8h7Ug==}
     peerDependencies:
@@ -1439,8 +1451,8 @@ packages:
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
-  '@tiptap/extension-text-style@2.10.4':
-    resolution: {integrity: sha512-ibq7avkcwHyUSG53Hf+P31rrwsKVbbiqbWZM4kXC7M2X3iUwFrtvaa+SWzyWQfE1jl2cCrD1+rfSkj/alcOKGg==}
+  '@tiptap/extension-text-style@2.11.0':
+    resolution: {integrity: sha512-vuA16wMZ6J3fboL7FObwV2f5uN9Vg0WYmqU7971vxzJyaRj9VE1eeH8Kh5fq4RgwDzc13MZGvZZV4HcE1R8o8A==}
     peerDependencies:
       '@tiptap/core': ^2.7.0
 
@@ -4328,6 +4340,11 @@ snapshots:
       '@tiptap/pm': 2.10.4
       tippy.js: 6.3.7
 
+  '@tiptap/extension-font-family@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/extension-text-style@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4)))':
+    dependencies:
+      '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
+      '@tiptap/extension-text-style': 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
+
   '@tiptap/extension-gapcursor@2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))(@tiptap/pm@2.10.4)':
     dependencies:
       '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
@@ -4401,7 +4418,7 @@ snapshots:
     dependencies:
       '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
 
-  '@tiptap/extension-text-style@2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))':
+  '@tiptap/extension-text-style@2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))':
     dependencies:
       '@tiptap/core': 2.10.4(@tiptap/pm@2.10.4)
 
@@ -4467,7 +4484,7 @@ snapshots:
       '@tiptap/extension-paragraph': 2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
       '@tiptap/extension-strike': 2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
       '@tiptap/extension-text': 2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
-      '@tiptap/extension-text-style': 2.10.4(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
+      '@tiptap/extension-text-style': 2.11.0(@tiptap/core@2.10.4(@tiptap/pm@2.10.4))
       '@tiptap/pm': 2.10.4
 
   '@types/d3-array@3.2.1': {}
