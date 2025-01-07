@@ -608,7 +608,7 @@ export function Toolbar() {
       <LinkButton />
       <ImageButton />
       <AlignButton />
-      {/* TODO: Align Height */}
+      {/* TODO: Line Height */}
       <ListButton />
       {sections.at(2)?.map((item) => (
         <ToolbarButton key={item.label} {...item} />
