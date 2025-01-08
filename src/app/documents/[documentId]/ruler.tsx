@@ -20,20 +20,23 @@ export function Ruler() {
   };
 
   const handleMouseMove = (ev: React.MouseEvent) => {
+    const PAGE_WIDTH = 816;
+    const MINIMUM_SPACE = 100;
+
     if ((isDraggingLeft || isDraggingRight) && rulerRef.current) {
       const container = rulerRef.current.querySelector("#ruler-container");
       if (container) {
         const containerRect = container.getBoundingClientRect();
         const relativeX = ev.clientX - containerRect.left;
-        const rawPosition = Math.max(0, Math.min(816, relativeX));
+        const rawPosition = Math.max(0, Math.min(PAGE_WIDTH, relativeX));
 
         if (isDraggingLeft) {
-          const maxLeftPosition = 816 - rightMargin - 100;
+          const maxLeftPosition = PAGE_WIDTH - rightMargin - MINIMUM_SPACE;
           const newLeftPosition = Math.min(rawPosition, maxLeftPosition);
           setLeftMargin(newLeftPosition); // TODO: Make Collaborative
         } else if (isDraggingRight) {
-          const maxRightPosition = 816 - (leftMargin + 100);
-          const newRightPosition = Math.max(816 - rawPosition, 0);
+          const maxRightPosition = PAGE_WIDTH - (leftMargin + MINIMUM_SPACE);
+          const newRightPosition = Math.max(PAGE_WIDTH - rawPosition, 0);
           const constrainedRightPosition = Math.min(
             newRightPosition,
             maxRightPosition
@@ -145,6 +148,16 @@ function Marker({
       onDoubleClick={onDoubleClick}
     >
       <FaCaretDown className="absolute left-1/2 top-0 h-full fill-blue-500 transform -translate-x-1/2" />
+      <div
+        className="absolute left-1/2 top-4 transform -translate-x-1/2"
+        style={{
+          height: "100vh",
+          width: "1px",
+          transform: "scaleX(0.5)",
+          backgroundColor: "#3B72F6",
+          display: isDragging ? "block" : "none",
+        }}
+      />
     </div>
   );
 }
