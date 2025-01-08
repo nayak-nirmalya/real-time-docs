@@ -1,4 +1,5 @@
 import { Editor } from "./editor";
+import { Navbar } from "./navbar";
 import { Toolbar } from "./toolbar";
 
 export default async function DocumentIdPage({
@@ -10,6 +11,7 @@ export default async function DocumentIdPage({
 
   return (
     <div className="min-h-screen bg-[#FAFBFD]">
+      <Navbar />
       <Toolbar />
       <Editor />
     </div>
