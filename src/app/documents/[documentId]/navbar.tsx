@@ -13,6 +13,7 @@ import {
   ItalicIcon,
   PrinterIcon,
   Redo2Icon,
+  RemoveFormattingIcon,
   StrikethroughIcon,
   TextIcon,
   TrashIcon,
@@ -152,10 +153,15 @@ export function Navbar() {
                       </MenubarItem>
                       <MenubarItem>
                         <StrikethroughIcon className="size-2 mr-4" />
-                        Strikethrough <MenubarShortcut>⌘S</MenubarShortcut>
+                        Strikethrough&nbsp;&nbsp;&nbsp;
+                        <MenubarShortcut>⌘S</MenubarShortcut>
                       </MenubarItem>
                     </MenubarSubContent>
                   </MenubarSub>
+                  <MenubarItem>
+                    <RemoveFormattingIcon className="size-4 mr-2" />
+                    Clear Formatting
+                  </MenubarItem>
                 </MenubarContent>
               </MenubarMenu>
             </Menubar>
