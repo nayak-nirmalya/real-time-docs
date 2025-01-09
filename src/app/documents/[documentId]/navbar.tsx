@@ -42,6 +42,14 @@ import { DocumentInput } from "./document-input";
 export function Navbar() {
   const { editor } = useEditorStore();
 
+  const insertTable = ({ rows, cols }: { rows: number; cols: number }) => {
+    editor
+      ?.chain()
+      .focus()
+      .insertTable({ rows, cols, withHeaderRow: false })
+      .run();
+  };
+
   return (
     <nav className="flex items-center justify-between">
       <div className="flex gap-2 items-center">
@@ -128,10 +136,16 @@ export function Navbar() {
                   <MenubarSub>
                     <MenubarSubTrigger>Table</MenubarSubTrigger>
                     <MenubarSubContent>
-                      <MenubarItem>1 X 1</MenubarItem>
-                      <MenubarItem>2 X 2</MenubarItem>
-                      <MenubarItem>3 X 3</MenubarItem>
-                      <MenubarItem>4 X 4</MenubarItem>
+                      {[1, 2, 3, 4].map((item) => (
+                        <MenubarItem
+                          key={item}
+                          onClick={() =>
+                            insertTable({ rows: item, cols: item })
+                          }
+                        >
+                          {item} X {item}
+                        </MenubarItem>
+                      ))}
                     </MenubarSubContent>
                   </MenubarSub>
                 </MenubarContent>
