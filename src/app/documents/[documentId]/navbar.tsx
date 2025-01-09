@@ -35,9 +35,13 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 
+import { useEditorStore } from "@/store/use-editor-store";
+
 import { DocumentInput } from "./document-input";
 
 export function Navbar() {
+  const { editor } = useEditorStore();
+
   return (
     <nav className="flex items-center justify-between">
       <div className="flex gap-2 items-center">
@@ -102,11 +106,15 @@ export function Navbar() {
                   Edit
                 </MenubarTrigger>
                 <MenubarContent>
-                  <MenubarItem>
+                  <MenubarItem
+                    onClick={() => editor?.chain().focus().undo().run()}
+                  >
                     <Undo2Icon className="size-4 mr-2" />
                     Undo <MenubarShortcut>⌘Z</MenubarShortcut>
                   </MenubarItem>
-                  <MenubarItem>
+                  <MenubarItem
+                    onClick={() => editor?.chain().focus().redo().run()}
+                  >
                     <Redo2Icon className="size-4 mr-2" />
                     Redo <MenubarShortcut>⌘Y</MenubarShortcut>
                   </MenubarItem>
