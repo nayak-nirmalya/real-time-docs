@@ -5,11 +5,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { templates } from "@/constants/templates";
 import { cn } from "@/lib/utils";
-
-const templates = [
-  { id: "blank", label: "Blank Document", imageUrl: "/logo.svg" },
-];
 
 export function TemplatesGallery() {
   const isCreating = false;
