@@ -56,6 +56,7 @@ export function TemplatesGallery() {
                 >
                   <button
                     disabled={isCreating}
+                    // TODO: Add Proper Initial Content
                     onClick={() =>
                       onTemplateClick({
                         title: template.label,
