@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 
 import { Doc } from "../../../convex/_generated/dataModel";
+import { DocumentRow } from "./document-row";
 
 export function DocumentsTable({
   documents,
@@ -51,7 +52,7 @@ export function DocumentsTable({
           ) : (
             <TableBody>
               {documents.map((document) => (
-                <></>
+                <DocumentRow key={document._id} document={document} />
               ))}
             </TableBody>
           )}
