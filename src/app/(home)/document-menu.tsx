@@ -20,11 +20,9 @@ import { Id } from "../../../convex/_generated/dataModel";
 export function DocumentMenu({
   documentId,
   title,
-  onNewTab,
 }: {
   documentId: Id<"documents">;
   title: string;
-  onNewTab: (id: Id<"documents">) => void;
 }) {
   return (
     <DropdownMenu>
@@ -53,7 +51,9 @@ export function DocumentMenu({
           </DropdownMenuItem>
         </RemoveDialog>
 
-        <DropdownMenuItem onClick={() => onNewTab(documentId)}>
+        <DropdownMenuItem
+          onClick={() => window.open(`/documents/${documentId}`, "_blank")}
+        >
           <ExternalLinkIcon className="size-4 mr-2" />
           Open in a new tab
         </DropdownMenuItem>
