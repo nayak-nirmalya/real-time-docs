@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import { useMutation } from "convex/react";
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,6 +16,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { Id } from "../../convex/_generated/dataModel";
+import { api } from "../../convex/_generated/api";
 
 export function RemoveDialog({
   children,
@@ -21,6 +25,9 @@ export function RemoveDialog({
   documentId: Id<"documents">;
   children: React.ReactNode;
 }) {
+  const [isRemoving, setIsRemoving] = useState(false);
+  const remove = useMutation(api.documents.removeById);
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
@@ -36,7 +43,16 @@ export function RemoveDialog({
           <AlertDialogCancel onClick={(ev) => ev.stopPropagation()}>
             Cancel
           </AlertDialogCancel>
-          <AlertDialogAction>Delete</AlertDialogAction>
+          <AlertDialogAction
+            disabled={isRemoving}
+            onClick={(ev) => {
+              ev.stopPropagation();
+              setIsRemoving(true);
+              remove({ id: documentId }).finally(() => setIsRemoving(false));
+            }}
+          >
+            Delete
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

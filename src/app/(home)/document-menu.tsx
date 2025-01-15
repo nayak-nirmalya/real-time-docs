@@ -29,7 +29,10 @@ export function DocumentMenu({
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <RemoveDialog documentId={documentId}>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            onSelect={(ev) => ev.preventDefault()}
+            onClick={(ev) => ev.stopPropagation()}
+          >
             <TrashIcon className="size-4 mr-2" />
             Remove
           </DropdownMenuItem>
