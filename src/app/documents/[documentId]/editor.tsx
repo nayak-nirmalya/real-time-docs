@@ -1,5 +1,6 @@
 "use client";
 
+import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TaskItem from "@tiptap/extension-task-item";
@@ -25,6 +26,7 @@ import { LineHeightExtension } from "@/extensions/line-height";
 import { Ruler } from "./ruler";
 
 export function Editor() {
+  const Liveblocks = useLiveblocksExtension();
   const { setEditor } = useEditorStore();
 
   const editor = useEditor({
@@ -61,6 +63,7 @@ export function Editor() {
       },
     },
     extensions: [
+      Liveblocks,
       StarterKit,
       FontSizeExtension,
       LineHeightExtension.configure({

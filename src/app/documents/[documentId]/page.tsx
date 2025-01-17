@@ -1,5 +1,6 @@
 import { Editor } from "./editor";
 import { Navbar } from "./navbar";
+import { Room } from "./room";
 import { Toolbar } from "./toolbar";
 
 export default async function DocumentIdPage({
@@ -16,7 +17,9 @@ export default async function DocumentIdPage({
         <Toolbar />
       </div>
       <div className="pt-[114px] print:pt-0">
-        <Editor />
+        <Room documentId={documentId}>
+          <Editor />
+        </Room>
       </div>
     </div>
   );
