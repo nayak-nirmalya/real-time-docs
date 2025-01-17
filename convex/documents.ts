@@ -101,11 +101,21 @@ export const updateById = mutation({
     const user = await ctx.auth.getUserIdentity();
     if (!user) throw new ConvexError("Unauthorized");
 
+    const organizationId = (user.organization_id ?? undefined) as
+      | string
+      | undefined;
+    const organizationRole = (user.organization_role ?? undefined) as
+      | string
+      | undefined;
+
     const document = await ctx.db.get(id);
     if (!document) throw new ConvexError("Document not found");
 
     const isOwner = document.ownerId === user.subject;
-    if (!isOwner) throw new ConvexError("Unauthorized");
+    const isOrganizationMember = document.organizationId === organizationId;
+    const isAdmin = organizationRole === "org:admin";
+    if (!isOwner && !(isOrganizationMember && isAdmin))
+      throw new ConvexError("Unauthorized");
 
     return await ctx.db.patch(id, { title });
   },
