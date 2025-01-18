@@ -623,8 +623,8 @@ export function Toolbar() {
       {
         label: "Comment",
         icon: MessageSquarePlusIcon,
-        onClick: () => console.log("Comment"),
-        isActive: false,
+        onClick: () => editor?.chain().focus().addPendingComment().run(),
+        isActive: editor?.isActive("liveblocksCommentMark"),
       },
       {
         label: "List Todo",
@@ -642,9 +642,9 @@ export function Toolbar() {
 
   return (
     <div className="bg-[#F1F4F9] px-2.5 py-0.5 rounded-[24px] min-h-[40px] flex items-center gap-x-0.5 overflow-x-auto">
-      {sections.at(0)?.map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
+      {sections
+        .at(0)
+        ?.map((item) => <ToolbarButton key={item.label} {...item} />)}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
@@ -652,9 +652,9 @@ export function Toolbar() {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <FontSizeButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {sections.at(1)?.map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
+      {sections
+        .at(1)
+        ?.map((item) => <ToolbarButton key={item.label} {...item} />)}
       <TextColorButton />
       <HighlightColorButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
@@ -663,9 +663,9 @@ export function Toolbar() {
       <AlignButton />
       <LineHeightButton />
       <ListButton />
-      {sections.at(2)?.map((item) => (
-        <ToolbarButton key={item.label} {...item} />
-      ))}
+      {sections
+        .at(2)
+        ?.map((item) => <ToolbarButton key={item.label} {...item} />)}
     </div>
   );
 }
