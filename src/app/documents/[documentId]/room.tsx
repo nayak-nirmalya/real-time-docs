@@ -6,6 +6,8 @@ import {
   ClientSideSuspense,
 } from "@liveblocks/react/suspense";
 
+import { FullscreenLoader } from "@/components/fullscreen-loader";
+
 export function Room({
   children,
   documentId,
@@ -16,7 +18,9 @@ export function Room({
   return (
     <LiveblocksProvider throttle={16} authEndpoint="/api/liveblocks-auth">
       <RoomProvider id={documentId}>
-        <ClientSideSuspense fallback={<div>Loading...</div>}>
+        <ClientSideSuspense
+          fallback={<FullscreenLoader label="Room loading..." />}
+        >
           {children}
         </ClientSideSuspense>
       </RoomProvider>
