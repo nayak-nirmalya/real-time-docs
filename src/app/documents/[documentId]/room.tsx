@@ -42,7 +42,14 @@ export function Room({
   return (
     <LiveblocksProvider
       throttle={16}
-      authEndpoint="/api/liveblocks-auth"
+      authEndpoint={async () => {
+        const response = await fetch("/api/liveblocks-auth", {
+          method: "POST",
+          body: JSON.stringify({ room: documentId }),
+        });
+
+        return await response.json();
+      }}
       resolveUsers={({ userIds }) =>
         userIds.map(
           (userId) => users.find((user) => user.id === userId) ?? undefined
