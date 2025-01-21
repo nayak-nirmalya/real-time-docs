@@ -10,7 +10,8 @@ import { useEffect, useMemo, useState } from "react";
 
 import { FullscreenLoader } from "@/components/fullscreen-loader";
 
-import { getUsers } from "./actions";
+import { getUsers, getDocuments } from "./actions";
+import { Id } from "../../../../convex/_generated/dataModel";
 
 export function Room({
   children,
@@ -66,7 +67,13 @@ export function Room({
 
         return filteredUsers.map((user) => user.id);
       }}
-      resolveRoomsInfo={() => []}
+      resolveRoomsInfo={async ({ roomIds }) => {
+        const documents = await getDocuments(roomIds as Id<"documents">[]);
+        return documents.map((document) => ({
+          id: document.id,
+          name: document.name,
+        }));
+      }}
     >
       <RoomProvider id={documentId}>
         <ClientSideSuspense
