@@ -75,7 +75,10 @@ export function Room({
         }));
       }}
     >
-      <RoomProvider id={documentId}>
+      <RoomProvider
+        id={documentId}
+        initialStorage={{ leftMargin: 56, rightMargin: 56 }}
+      >
         <ClientSideSuspense
           fallback={<FullscreenLoader label="Room loading..." />}
         >
