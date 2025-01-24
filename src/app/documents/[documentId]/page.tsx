@@ -21,6 +21,7 @@ export default async function DocumentIdPage({
     { id: documentId },
     { token }
   );
+  if (!preloadedDocument) throw new Error("Document not found");
 
   return (
     <Document documentId={documentId} preloadedDocument={preloadedDocument} />
