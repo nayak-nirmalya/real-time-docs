@@ -18,7 +18,7 @@ export function Room({
   documentId,
 }: {
   children: React.ReactNode;
-  documentId: string;
+  documentId: Id<"documents">;
 }) {
   const [users, setUsers] = useState<
     { id: string; name: string; avatar: string }[]
