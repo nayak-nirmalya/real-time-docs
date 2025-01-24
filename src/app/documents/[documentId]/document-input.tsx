@@ -1,9 +1,12 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { BsCloudCheck } from "react-icons/bs";
 import { useMutation } from "convex/react";
 
+import { useDebounce } from "@/hooks/use-debounce";
+
 import { Id } from "../../../../convex/_generated/dataModel";
 import { api } from "../../../../convex/_generated/api";
+import { toast } from "sonner";
 
 export function DocumentInput({
   id,
@@ -21,16 +24,39 @@ export function DocumentInput({
 
   const mutate = useMutation(api.documents.updateById);
 
+  const debouncedUpdate = useDebounce((newValue: string) => {
+    if (newValue === title) return;
+
+    setIsPending(true);
+    mutate({ id, title: newValue })
+      .then(() => toast.success("Document updated"))
+      .catch(() => toast.error("Something went wrong"))
+      .finally(() => setIsPending(false));
+  });
+
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
+    setIsPending(true);
+    mutate({ id, title: value })
+      .then(() => {
+        toast.success("Document updated");
+        setIsEditing(false);
+      })
+      .catch(() => toast.error("Something went wrong"))
+      .finally(() => setIsPending(false));
+  };
+
   const onChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = ev.target.value;
     setValue(newValue);
-    // TODO: Debounced Value
+    debouncedUpdate(newValue);
   };
 
   return (
     <div className="flex items-center gap-2">
       {isEditing ? (
-        <form className="relative w-fit max-w-[50ch]">
+        <form onSubmit={handleSubmit} className="relative w-fit max-w-[50ch]">
           <span className="invisible whitespace-pre px-1.5 text-lg">
             {value || ""}
           </span>
@@ -38,6 +64,7 @@ export function DocumentInput({
             ref={inputRef}
             value={value}
             onChange={onChange}
+            onBlur={() => setIsEditing(false)}
             className="absolute inset-0 text-lg text-black px-1.5 bg-transparent truncate"
           />
         </form>
