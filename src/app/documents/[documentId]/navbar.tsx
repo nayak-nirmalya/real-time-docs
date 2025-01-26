@@ -158,10 +158,15 @@ export function Navbar({ data }: { data: Doc<"documents"> }) {
                     New Document
                   </MenubarItem>
                   <MenubarSeparator />
-                  <MenubarItem>
-                    <FilePenIcon className="size-4 mr-2" />
-                    Rename
-                  </MenubarItem>
+                  <RenameDialog documentId={data._id} initialTitle={data.title}>
+                    <MenubarItem
+                      onClick={(ev) => ev.stopPropagation()}
+                      onSelect={(ev) => ev.preventDefault()}
+                    >
+                      <FilePenIcon className="size-4 mr-2" />
+                      Rename
+                    </MenubarItem>
+                  </RenameDialog>
                   <RemoveDialog documentId={data._id}>
                     <MenubarItem
                       onClick={(ev) => ev.stopPropagation()}
