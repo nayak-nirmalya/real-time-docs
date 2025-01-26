@@ -26,6 +26,8 @@ import { useMutation } from "convex/react";
 import { BsFilePdf } from "react-icons/bs";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
+import { RemoveDialog } from "@/components/remove-dialog";
+import { RenameDialog } from "@/components/rename-dialog";
 import {
   Menubar,
   MenubarContent,
@@ -160,10 +162,15 @@ export function Navbar({ data }: { data: Doc<"documents"> }) {
                     <FilePenIcon className="size-4 mr-2" />
                     Rename
                   </MenubarItem>
-                  <MenubarItem>
-                    <TrashIcon className="size-4 mr-2" />
-                    Remove
-                  </MenubarItem>
+                  <RemoveDialog documentId={data._id}>
+                    <MenubarItem
+                      onClick={(ev) => ev.stopPropagation()}
+                      onSelect={(ev) => ev.preventDefault()}
+                    >
+                      <TrashIcon className="size-4 mr-2" />
+                      Remove
+                    </MenubarItem>
+                  </RemoveDialog>
                   <MenubarSeparator />
                   <MenubarItem onClick={() => window.print()}>
                     <PrinterIcon className="size-4 mr-2" />
