@@ -52,6 +52,28 @@ export const templates = [
       <p>List of relevant skills and competencies.</p>
   `,
   },
-  { id: "cover-letter", label: "Cover letter", imageUrl: "/cover-letter.svg" },
+  {
+    id: "cover-letter",
+    label: "Cover letter",
+    imageUrl: "/cover-letter.svg",
+    initialContent: `
+    <p>[Your Name]<br>
+    [Your Address]<br>
+    [City, State ZIP]</p>
+    
+    <p>[Date]</p>
+    
+    <p>[Recipient's Name]<br>
+    [Company Name]<br>
+    [Company Address]</p>
+    
+    <p>Dear [Recipient's Name],</p>
+
+    <p>I am writting to express my interest in [position] at [Company Name].</p>
+
+    <p>Sincerely,<br>
+    [Your Name]</p>
+`,
+  },
   { id: "letter", label: "Letter", imageUrl: "/letter.svg" },
 ];
