@@ -27,10 +27,10 @@ import { LineHeightExtension } from "@/extensions/line-height";
 import { Ruler } from "./ruler";
 import { Threads } from "./threads";
 
-export function Editor() {
+export function Editor({ initialContent }: { initialContent?: string }) {
   const leftMargin = useStorage((root) => root.leftMargin);
   const rightMargin = useStorage((root) => root.rightMargin);
-  const Liveblocks = useLiveblocksExtension();
+  const Liveblocks = useLiveblocksExtension({ initialContent });
   const { setEditor } = useEditorStore();
 
   const editor = useEditor({
