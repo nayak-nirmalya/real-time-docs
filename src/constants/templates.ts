@@ -28,8 +28,30 @@ export const templates = [
     id: "business-letter",
     label: "Business letter",
     imageUrl: "/business-letter.svg",
+    initialContent: `
+      <h1>Business Letter</h1>
+      <p>This is a business letter.</p>
+    `,
   },
-  { id: "resume", label: "Resume", imageUrl: "/resume.svg" },
+  {
+    id: "resume",
+    label: "Resume",
+    imageUrl: "/resume.svg",
+    initialContent: `
+      <h1>[Your Name]</h1>
+      <p>[Contact Information]</p>
+      
+      <h2>Professional Summary</h2>
+      <p>Brief overview of your professional background and key strengths.</p>
+      
+      <h2>Work Experience</h2>
+      <p>[Company Name] - [Position]<br>
+      [Date Range]</p>
+      
+      <h2>Skills</h2>
+      <p>List of relevant skills and competencies.</p>
+  `,
+  },
   { id: "cover-letter", label: "Cover letter", imageUrl: "/cover-letter.svg" },
   { id: "letter", label: "Letter", imageUrl: "/letter.svg" },
 ];
