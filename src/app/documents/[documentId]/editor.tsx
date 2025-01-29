@@ -30,7 +30,10 @@ import { Threads } from "./threads";
 export function Editor({ initialContent }: { initialContent?: string }) {
   const leftMargin = useStorage((root) => root.leftMargin);
   const rightMargin = useStorage((root) => root.rightMargin);
-  const Liveblocks = useLiveblocksExtension({ initialContent });
+  const Liveblocks = useLiveblocksExtension({
+    initialContent,
+    offlineSupport_experimental: true,
+  });
   const { setEditor } = useEditorStore();
 
   const editor = useEditor({
