@@ -57,23 +57,39 @@ export const templates = [
     label: "Cover letter",
     imageUrl: "/cover-letter.svg",
     initialContent: `
-    <p>[Your Name]<br>
-    [Your Address]<br>
-    [City, State ZIP]</p>
-    
-    <p>[Date]</p>
-    
-    <p>[Recipient's Name]<br>
-    [Company Name]<br>
-    [Company Address]</p>
-    
-    <p>Dear [Recipient's Name],</p>
+      <p>[Your Name]<br>
+      [Your Address]<br>
+      [City, State ZIP]</p>
+      
+      <p>[Date]</p>
+      
+      <p>[Recipient's Name]<br>
+      [Company Name]<br>
+      [Company Address]</p>
+      
+      <p>Dear [Recipient's Name],</p>
 
-    <p>I am writting to express my interest in [position] at [Company Name].</p>
+      <p>I am writting to express my interest in [position] at [Company Name].</p>
 
-    <p>Sincerely,<br>
-    [Your Name]</p>
+      <p>Sincerely,<br>
+      [Your Name]</p>
 `,
   },
-  { id: "letter", label: "Letter", imageUrl: "/letter.svg" },
+  {
+    id: "letter",
+    label: "Letter",
+    imageUrl: "/letter.svg",
+    initialContent: `
+      <p>Subject: [Email Subject]</p>
+      
+      <p>Dear [Recipient],</p>
+      
+      <p>I hope this email finds you well.</p>
+      
+      <p>[Email Body]</p>
+
+      <p>Best regards,<br>
+      [Your Name]</p>
+`,
+  },
 ];
