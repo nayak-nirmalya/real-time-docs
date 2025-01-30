@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useEffect, useMemo, useState } from "react";
 
 import { FullscreenLoader } from "@/components/fullscreen-loader";
+import { LEFT_MARGIN_DEFAULT, RIGHT_MARGIN_DEFAULT } from "@/constants/margins";
 
 import { getUsers, getDocuments } from "./actions";
 import { Id } from "../../../../convex/_generated/dataModel";
@@ -77,7 +78,10 @@ export function Room({
     >
       <RoomProvider
         id={documentId}
-        initialStorage={{ leftMargin: 56, rightMargin: 56 }}
+        initialStorage={{
+          leftMargin: LEFT_MARGIN_DEFAULT,
+          rightMargin: RIGHT_MARGIN_DEFAULT,
+        }}
       >
         <ClientSideSuspense
           fallback={<FullscreenLoader label="Room loading..." />}
