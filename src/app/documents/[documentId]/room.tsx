@@ -22,7 +22,7 @@ export function Room({
   documentId: Id<"documents">;
 }) {
   const [users, setUsers] = useState<
-    { id: string; name: string; avatar: string }[]
+    { id: string; name: string; avatar: string; color: string }[]
   >([]);
 
   const fetchUsers = useMemo(
