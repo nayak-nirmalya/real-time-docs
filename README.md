@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <div>
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
+    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+  </div>
 
-## Getting Started
+<h3 align="center">Real Time Documents</h3>
+</div>
 
-First, run the development server:
+## 📋 <a name="table">Table of Contents</a>
+
+1. 🤖 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+
+## <a name="introduction">🤖 Introduction</a>
+
+A real-time document collaboration platform that lets users effortlessly create, edit, and share documents. Built with the latest Next.js 15, TypeScript, TailwindCSS, Convex, Clerk & LiveBlocks.
+
+Credits: [Antonio Erdeljac](https://github.com/AntonioErdeljac)
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- React 19
+- Next.js 15
+- Convex
+- TailwindCSS
+- ShadCN
+- TypeScript
+
+## <a name="features">🔋 Features</a>
+
+👉 **User Authentication with Clerk**
+
+👉 **Real-Time Collaboration**
+
+👉 **View and Manage Files**
+
+👉 **Download Files**
+
+👉 **File Sharing**
+
+👉 **Dashboard**
+
+👉 **Global Search**
+
+👉 **User Oraganization**
+
+👉 **Modern Responsive Design**
+
+## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [pnpm](https://www.pnpm.io/) (Node Package Manager)
+
+**Cloning the Repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/nayak-nirmalya/real-time-docs.git
+cd real-time-docs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Installation**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Install the project dependencies using npm:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+**Set Up Environment Variables**
 
-To learn more about Next.js, take a look at the following resources:
+Create a new file named `.env.local` in the root of your project and add the following content:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+CONVEX_DEPLOYMENT=""
+CLERK_SECRET_KEY=""
+LIVEBLOCKS_SECRET_KEY=""
+NEXT_PUBLIC_LIVEBLOCKS_KEY=""
+NEXT_PUBLIC_CONVEX_URL=""
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=""
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Replace the values with your actual credentials. You can obtain these credentials by signing up &
+creating a new project on [Convex](https://www.convex.dev/), [Clerk](https://clerk.com/) & [LiveBlocks](https://liveblocks.io/).
 
-## Deploy on Vercel
+**Running the Project**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm "/^dev:.*/"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+OR
+
+```bash
+pnpm dev:next
+pnpm dev:convex
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+#
